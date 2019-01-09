@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>759655904417-bp3f9cb0aqlqq7o9r6fit5ounnbe0j5s.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.759655904417-bp3f9cb0aqlqq7o9r6fit5ounnbe0j5s</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDF8mvwv6JTbp2oxcm3NhhZ-xrMXlymdeg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>759655904417</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.mobileApp</string>
+	<key>PROJECT_ID</key>
+	<string>foodclub-cd885</string>
+	<key>STORAGE_BUCKET</key>
+	<string>foodclub-cd885.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:759655904417:ios:0a756a3fbdfbe68e</string>
+	<key>DATABASE_URL</key>
+	<string>https://foodclub-cd885.firebaseio.com</string>
+</dict>
+</plist>
