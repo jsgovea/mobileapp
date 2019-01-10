@@ -13,10 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
+      title: '',
       theme: new ThemeData(
          primaryColor: salmonColor
       ),
-      home: new LoginPage(auth: new Auth())
+      home: new LoginPage(),
     ); 
   }
 }

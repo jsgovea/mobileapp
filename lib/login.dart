@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'auth.dart';
+import 'tabBar.dart';
+import 'orders.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 final salmonColor = const Color(0XFFFD6667);
 
 class LoginPage extends StatefulWidget {
-
-  LoginPage({this.auth});
-  final BaseAuth auth;
-
   @override
   State<StatefulWidget> createState() => new _LoginPageState();
 }
@@ -16,35 +15,28 @@ class LoginPage extends StatefulWidget {
 
 
 class _LoginPageState extends State<LoginPage> {
-final formKey = new GlobalKey<FormState>();
+
+final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
 
 
 String _email;
 String _password;
-bool _validate = false;
 
 
-bool validateAndSave() {
-  final form = formKey.currentState;
-  if(form.validate()) {
-    form.save();
-    return true;
-  } else {
-    return false;
-  }
-}
-
-void validateAndSubmit() async {
-  if (validateAndSave()) {
+Future<void> signIn() async {
+  final formState = _formKey.currentState;
+  if(formState.validate()) {
+    formState.save();
     try {
-      FirebaseUser user = await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
-      print('Sign in: ${user.uid}');
-    } catch (e) {
+    FirebaseUser user =  await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
+    Navigator.push(context, MaterialPageRoute(builder: (context) => NavBar()));
+    } catch(e) {
       print(e);
     }
-    
   }
+
+  
 }
 
   @override
@@ -83,7 +75,7 @@ void validateAndSubmit() async {
           new Container(
             padding: EdgeInsets.all(16.0),
             child: new Form(
-              key: formKey,
+              key: _formKey,
               child: new Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
@@ -112,7 +104,9 @@ void validateAndSubmit() async {
                       ),
                       ),
                       obscureText: true,
-                    validator: (value) => value.isEmpty ? 'Debe completar todos los campos' : null,
+                      validator: (value) {
+
+                      },
                     onSaved: (value) => _password = value,              
                   ),                
                 ],
@@ -127,7 +121,7 @@ void validateAndSubmit() async {
                     padding: const EdgeInsets.all(15.0),
                     textColor: Colors.white,
                     color: Colors.green,
-                    onPressed: validateAndSubmit,
+                    onPressed: signIn,
                     shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
                     child: new Text("Iniciar Sesión", style: TextStyle(fontSize: 20.0,),),
                   ),
@@ -138,21 +132,3 @@ void validateAndSubmit() async {
     );
   }
 }
-
-
-
-
-
-        //         new Container( 
-        //   margin: EdgeInsets.all(40.0),     
-        //   alignment:  Alignment.center,
-        //   child:     
-        //     new RaisedButton(
-        //             padding: const EdgeInsets.all(15.0),
-        //             textColor: Colors.white,
-        //             color: Colors.green,
-        //             onPressed: validateAndSave,
-        //             shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-        //             child: new Text("Iniciar Sesión", style: TextStyle(fontSize: 20.0,),),
-        //           ),
-        // ),
